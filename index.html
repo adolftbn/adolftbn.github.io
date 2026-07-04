@@ -147,7 +147,7 @@
   section .head p{color:var(--ink-dim);margin-top:10px;max-width:60ch;}
  
   /* ---------- ABOUT / STATS ---------- */
-  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;}
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start;}
   .about-text p{color:var(--ink-dim);margin:0 0 14px;}
   .about-text strong{color:var(--ink);font-weight:600;}
   .stat-table{border:1px solid var(--border);}
@@ -168,15 +168,16 @@
  
   /* ---------- OTHER PROJECTS GRID ---------- */
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .mini-card{padding:20px;}
+  .mini-card{padding:20px;display:flex;flex-direction:column;height:100%;}
   .mini-card .mini-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
   .mini-icon{width:28px;height:28px;color:var(--copper);flex-shrink:0;}
   .mini-card h4{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--ink);}
   .mini-card .mini-course{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;}
-  .mini-card p{font-size:13.5px;color:var(--ink-dim);margin:0 0 10px;}
+  .mini-card p{font-size:13.5px;color:var(--ink-dim);margin:0 0 10px;flex-grow:1;}
+  .mini-card .tag-row{margin-top:auto;}
  
   /* ---------- EXPERIENCE LOG ---------- */
-  .log-item{display:grid;grid-template-columns:150px 1fr auto;gap:20px;align-items:start;padding:20px 0;border-bottom:1px solid var(--border);}
+  .log-item{display:grid;grid-template-columns:150px 1fr auto;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border);}
   .log-item:last-child{border-bottom:none;}
   .log-date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-mute);text-transform:uppercase;padding-top:2px;}
   .log-body h4{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px;}
@@ -454,7 +455,7 @@
         <div class="log-date" data-i18n="log.date.now1">2026 — Now</div>
         <div class="log-body">
           <h4 data-i18n="log.ta.title">Undergraduate Thesis — Egg Incubator Control</h4>
-          <p data-i18n="log.ta.desc">Trade-off analysis between control performance and energy efficiency using IMC-based segmented PID with λ scheduling, supervised by Dr. Jaenal Arifin and Danny Kurnianto.</p>
+          <p data-i18n="log.ta.desc">Trade-off analysis between control performance and energy efficiency using IMC-based segmented PID with λ scheduling.</p>
         </div>
         <span class="badge badge-ongoing" data-i18n="badge.ongoing">Ongoing</span>
       </div>
@@ -515,7 +516,7 @@
     <div class="skill-group">
       <h4 data-i18n="skills.control">Control &amp; Signal Processing</h4>
       <div class="skill-tags">
-        <span class="tag">PID Tuning (IMC / SIMC)</span><span class="tag">FOPDT Modeling</span><span class="tag">Fuzzy Logic (Mamdani / Sugeno)</span><span class="tag">Anti-Windup</span>
+        <span class="tag">PID Tuning (IMC)</span><span class="tag">FOPDT Modeling</span><span class="tag">Fuzzy Logic (Mamdani / Sugeno)</span><span class="tag">Anti-Windup</span>
       </div>
     </div>
     <div class="skill-group">
@@ -541,10 +542,10 @@
       <p data-i18n="contact.p">Open to internships, research collaboration, and interesting control-systems problems.</p>
     </div>
     <div class="contact-grid">
-      <a class="contact-card plate" href="mailto:your.email@example.com">
+      <a class="contact-card plate" href="mailto:adolftbn@gmail.com">
         <span class="fid-tr"></span><span class="fid-bl"></span>
         <span class="c-label">Email</span>
-        <span class="c-value">your.email@example.com</span>
+        <span class="c-value">adolftbn@gmail.com</span>
       </a>
       <a class="contact-card plate" href="https://github.com/adolftbn" target="_blank" rel="noopener">
         <span class="fid-tr"></span><span class="fid-bl"></span>
@@ -644,7 +645,7 @@
  
     "log.date.now1": {en:"2026 — Now", id:"2026 — Sekarang"},
     "log.ta.title": {en:"Undergraduate Thesis — Egg Incubator Control", id:"Tugas Akhir — Kontrol Inkubator Telur"},
-    "log.ta.desc": {en:"Trade-off analysis between control performance and energy efficiency using IMC-based segmented PID with λ scheduling, supervised by Dr. Jaenal Arifin and Danny Kurnianto.", id:"Analisis trade-off antara performa kontrol dan efisiensi energi menggunakan segmented PID berbasis IMC dengan λ scheduling, dibimbing oleh Dr. Jaenal Arifin dan Danny Kurnianto."},
+    "log.ta.desc": {en:"Trade-off analysis between control performance and energy efficiency using IMC-based segmented PID with λ scheduling.", id:"Analisis trade-off antara performa kontrol dan efisiensi energi menggunakan segmented PID berbasis IMC dengan λ scheduling."},
  
     "log.date.icdec": {en:"Jul 2026 — Now", id:"Jul 2026 — Sekarang"},
     "log.icdec.title": {en:"Internship — ICDeC", id:"Magang — ICDeC"},
@@ -690,7 +691,7 @@
       }
     });
     document.documentElement.lang = lang;
-    langBtn.textContent = lang === 'en' ? 'ID' : 'EN';
+    langBtn.textContent = lang === 'en' ? 'EN' : 'ID';
     currentLang = lang;
   }
  
